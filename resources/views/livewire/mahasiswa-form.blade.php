@@ -1,51 +1,51 @@
 <div>
     <!-- Form -->
-    <form wire:submit.prevent="save" class="space-y-4">
-        <div>
-            <label for="npm" class="block text-sm font-medium text-gray-700">NPM:</label>
+    <form wire:submit.prevent="save" class="p-4 bg-gray-50 rounded-lg shadow-md space-y-4">
+        <h2 class="text-xl font-semibold text-gray-800">Form Mahasiswa</h2>
+        <div class="flex flex-col">
+            <label for="npm" class="text-sm font-medium text-gray-700">NPM</label>
             <input type="text" id="npm" wire:model="npm" required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
-        <div>
-            <label for="nama" class="block text-sm font-medium text-gray-700">Nama:</label>
+        <div class="flex flex-col">
+            <label for="nama" class="text-sm font-medium text-gray-700">Nama</label>
             <input type="text" id="nama" wire:model="nama" required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
-        <div>
-            <label for="prodi" class="block text-sm font-medium text-gray-700">Prodi:</label>
+        <div class="flex flex-col">
+            <label for="prodi" class="text-sm font-medium text-gray-700">Prodi</label>
             <input type="text" id="prodi" wire:model="prodi" required
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
         </div>
         <div>
             <button type="submit"
-                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
-                Save
+            class="px-3 py-1 text-white font-semibold rounded-md bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:outline-none">
+            save
             </button>
         </div>
     </form>
 
     <!-- Data Mahasiswa -->
-    <div class="mt-6">
-        <h3 class="text-lg font-medium text-gray-900">Nama Mahasiswa</h3>
-        <table class="min-w-full divide-y divide-gray-200 mt-4">
-            <thead class="bg-gray-50">
+    <div class="mt-6 p-4 bg-white rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-gray-800 mb-4">Data Mahasiswa</h3>
+        <table class="w-full border border-gray-200 rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NPM</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prodi</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">NPM</th>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Nama</th>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Prodi</th>
+                    <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Action</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+            <tbody class="bg-white">
                 @foreach ($mahasiswa as $mahasiswa)
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $mahasiswa->npm }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $mahasiswa->nama }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $mahasiswa->prodi }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <button wire:click="delete({{ $mahasiswa->id }})" class="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600"
-                            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
+                <tr class="border-b border-gray-200">
+                    <td class="px-4 py-2 text-gray-800">{{ $mahasiswa->npm }}</td>
+                    <td class="px-4 py-2 text-gray-800">{{ $mahasiswa->nama }}</td>
+                    <td class="px-4 py-2 text-gray-800">{{ $mahasiswa->prodi }}</td>
+                    <td class="px-4 py-2">
+                        <button wire:click="delete({{ $mahasiswa->id }})"
+                            class="px-3 py-1 text-white font-semibold rounded-md bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:outline-none">
                             Delete
                         </button>
                     </td>
@@ -58,8 +58,7 @@
     <!-- Export Buttons -->
     <div class="mt-4 flex space-x-4">
         <button wire:click="exportExcel"
-            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
+        class="px-3 py-1 text-white font-semibold rounded-md bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:outline-none">
             Buat Excel
         </button>
     </div>
