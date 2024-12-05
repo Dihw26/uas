@@ -18,15 +18,16 @@
         </div>
         <div>
             <button type="submit"
-                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Simpan
+                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
+                Save
             </button>
         </div>
     </form>
 
     <!-- Data Mahasiswa -->
     <div class="mt-6">
-        <h3 class="text-lg font-medium text-gray-900">Daftar Mahasiswa</h3>
+        <h3 class="text-lg font-medium text-gray-900">Nama Mahasiswa</h3>
         <table class="min-w-full divide-y divide-gray-200 mt-4">
             <thead class="bg-gray-50">
                 <tr>
@@ -44,8 +45,8 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $mahasiswa->prodi }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         <button wire:click="delete({{ $mahasiswa->id }})" class="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600"
-                            style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px;">>
-                            Hapus
+                            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
+                            Delete
                         </button>
                     </td>
                 </tr>
@@ -58,13 +59,8 @@
     <div class="mt-4 flex space-x-4">
         <button wire:click="exportExcel"
             class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-            style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px;">>
-            Export Excel
-        </button>
-        <button wire:click="exportPDF"
-            class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-            style="background-color: red; color: white; padding: 5px 10px; border-radius: 5px;">>
-            Export PDF
+            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px;">
+            Buat Excel
         </button>
     </div>
 </div>
