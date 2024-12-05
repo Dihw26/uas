@@ -20,7 +20,7 @@
         <div>
             <button type="submit"
             class="px-3 py-1 text-white font-semibold rounded-md bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:outline-none">
-            save
+            save the data
             </button>
         </div>
     </form>
